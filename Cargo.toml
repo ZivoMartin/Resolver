@@ -1,0 +1,15 @@
+[package]
+name = "Resolver"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rumqttc = "0.24"
+tokio = { features = ["full"], version = "1" }
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+clap = { features = ["derive"], version = "4.6.1"}
+anyhow = "1.0.102"
+notifier_hub = "0.1.2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["fmt", "env-filter"] }
