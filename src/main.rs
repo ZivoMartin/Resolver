@@ -28,7 +28,7 @@ struct Args {
 #[tokio::main]
 async fn main() -> Result<()> {
     tracing_subscriber::fmt().with_env_filter("info").init();
-    info!("Starting.");
+    info!("Starting Resolver.");
 
     let Args {
         name,

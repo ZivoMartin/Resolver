@@ -15,7 +15,12 @@ pub async fn listen(options: MqttOptions, name: &str, channel_cap: usize) -> Res
     let register_topic = topics::register(name);
     let update_topic = topics::update(name);
     let heartbeat_topic = topics::heartbeat(name);
-    let topics = [&register_topic, &request_topic, &update_topic];
+    let topics = [
+        &register_topic,
+        &request_topic,
+        &update_topic,
+        &heartbeat_topic,
+    ];
 
     for topic in topics {
         client
