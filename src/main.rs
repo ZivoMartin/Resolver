@@ -36,6 +36,7 @@ async fn main() -> Result<()> {
         broker_port,
         channel_cap,
     } = Args::parse();
+
     let options = MqttOptions::new(&name, broker, broker_port);
     listen(options, &name, channel_cap).await
 }

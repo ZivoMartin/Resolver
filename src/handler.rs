@@ -101,12 +101,13 @@ async fn start_timer(state: State, service: String, mut dur: Duration) {
 pub async fn handle_register(state: State, s: &str) -> Result<()> {
     let infos = serde_json::from_str::<Informations>(&s)
         .context("Failed to parse registration message (Informations)")?;
+
     let id = infos.service.clone();
 
     {
         let mut database = state.database.write().await;
 
-        if database.contains(&infos.service) {
+        if database.contains(&infos.service) && !infos.overwrite.unwrap_or(true) {
             bail!(
                 "Registration rejected: service '{}' already exists",
                 infos.service

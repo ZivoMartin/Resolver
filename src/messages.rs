@@ -8,8 +8,9 @@ pub struct Informations {
     pub service: String,
     pub host: String,
     pub port: u16,
-    pub ttl_ms: Option<u64>,
     pub metadatas: Value,
+    pub ttl_ms: Option<u64>,
+    pub overwrite: Option<bool>,
 }
 
 fn default_false() -> bool {
